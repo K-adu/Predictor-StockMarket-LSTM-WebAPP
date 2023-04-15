@@ -4,8 +4,8 @@ import mongoose from "mongoose"
 
 const app = express()
 app.use(express.json())
-app.use(express.urlencoded({ extended: true })) // use the extended option to support more data types
-app.use(cors()) // allow all origins for simplicity, but you can restrict to specific domains
+app.use(express.urlencoded({ extended: true })) 
+app.use(cors())
 
 mongoose.connect("mongodb+srv://mukunda:table1@cluster0.5j8q4xs.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
@@ -62,7 +62,6 @@ app.post("/register", (req, res)=> {
     
 }) 
 
-// Add CORS headers to allow requests from any domain
 app.use(function (req, res, next) {
     //Enabling CORS
     res.header("Access-Control-Allow-Origin", "*");
